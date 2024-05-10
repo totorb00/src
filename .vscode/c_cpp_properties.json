@@ -1,0 +1,31 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "${default}",
+                "limitSymbolsToIncludedHeaders": false
+            },
+            "includePath": [
+                "/opt/ros/noetic/include/**",
+                "/home/sanji/catkin_ws/devel/include/**",
+                "/home/sanji/catkin_ws/src/hector_slam/hector_geotiff/include/**",
+                "/home/sanji/catkin_ws/src/hector_slam/hector_map_tools/include/**",
+                "/home/sanji/catkin_ws/src/hector_slam/hector_mapping/include/**",
+                "/home/sanji/catkin_ws/src/hector_slam/hector_marker_drawing/include/**",
+                "/home/sanji/catkin_ws/src/laser_to_point/include/**",
+                "/home/sanji/robot_ws/src/main/include/**",
+                "/home/sanji/catkin_ws/src/robocon_nav/include/**",
+                "/usr/include/**",
+                "/opt/ros/noetic/include",
+                "/usr/include/eigen3",
+                "${workspaceFolder}/main/include/main"
+            ],
+            "name": "ROS",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu11",
+            "cppStandard": "c++14"
+        }
+    ],
+    "version": 4
+}

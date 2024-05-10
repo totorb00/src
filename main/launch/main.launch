@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- 2D LIDAR CONNECTIONS -->
+    <include file="$(find rplidar_ros)/launch/rplidar_c1.launch">
+    </include>
+        <node pkg="lidar" type="wheel_filter" name="wheel_filter">
+            <remap from="filtered" to="scan"/>
+        </node>
+
+
+    <!-- DEPTH LIDAR CONNECTIONS -->
+    <!-- <include file="$(find openni2_launch)/launch/openni2.launch">
+    </include> -->
+
+
+    <!-- ROS SERIAL CONNECTIONS -->
+    <node pkg="rosserial_python" type="serial_node.py" name="MAIN_STM32">
+        <param name="port" value="/dev/ttyUSB0"/>
+        <param name="baud" value="115200"/>
+    </node>
+
+    <!-- IF YOU NEED A CONNECTING 2 DEVICE  -->
+    <node pkg="rosserial_python" type="serial_node.py" name="ENCODER_NODE">
+        <param name="port" value="/dev/ttyACM0"/>
+        <param name="baud" value="115200"/>
+    </node>
+
+    <!-- <node pkg="main" type="main" name="main">
+    </node> -->
+
+    <node pkg="camera" type="ball_detecter" name="ball_detecter" />
+
+    <node pkg="wall_detection" type="environment" name="environment" />
+</launch>
