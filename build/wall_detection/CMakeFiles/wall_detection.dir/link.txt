@@ -1,0 +1,1 @@
+/usr/bin/g++ -fPIC   -g   -shared -Wl,-soname,libwall_detection.so -o ../devel/lib/libwall_detection.so CMakeFiles/wall_detection.dir/src/render/render.cpp.o CMakeFiles/wall_detection.dir/src/processPointClouds.cpp.o 

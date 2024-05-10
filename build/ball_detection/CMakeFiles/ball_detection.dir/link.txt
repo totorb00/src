@@ -1,0 +1,1 @@
+/usr/bin/g++ -fPIC   -g   -shared -Wl,-soname,libball_detection.so -o ../devel/lib/libball_detection.so CMakeFiles/ball_detection.dir/src/render/render.cpp.o CMakeFiles/ball_detection.dir/src/processPointClouds.cpp.o 

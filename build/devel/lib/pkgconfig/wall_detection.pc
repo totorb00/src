@@ -1,0 +1,8 @@
+prefix=/home/sanji/robot_ws/src/build/devel
+
+Name: wall_detection
+Description: Description of wall_detection
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

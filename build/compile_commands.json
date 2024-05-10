@@ -1,0 +1,182 @@
+[
+{
+  "directory": "/home/sanji/robot_ws/src/build/gtest/googlemock",
+  "command": "/usr/bin/g++  -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgmock_main_EXPORTS -isystem /usr/src/googletest/googlemock/include -isystem /usr/src/googletest/googlemock -isystem /usr/src/googletest/googletest/include -isystem /usr/src/googletest/googletest  -g -fPIC   -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -DGTEST_HAS_PTHREAD=1 -std=c++11 -o CMakeFiles/gmock_main.dir/src/gmock_main.cc.o -c /usr/src/googletest/googlemock/src/gmock_main.cc",
+  "file": "/usr/src/googletest/googlemock/src/gmock_main.cc"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/gtest/googlemock",
+  "command": "/usr/bin/g++  -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgmock_EXPORTS -I/usr/src/googletest/googlemock/include -I/usr/src/googletest/googlemock -isystem /usr/src/googletest/googletest/include -isystem /usr/src/googletest/googletest  -g -fPIC   -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -DGTEST_HAS_PTHREAD=1 -std=c++11 -o CMakeFiles/gmock.dir/src/gmock-all.cc.o -c /usr/src/googletest/googlemock/src/gmock-all.cc",
+  "file": "/usr/src/googletest/googlemock/src/gmock-all.cc"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/gtest/googletest",
+  "command": "/usr/bin/g++  -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgtest_main_EXPORTS -isystem /usr/src/googletest/googletest/include -isystem /usr/src/googletest/googletest  -g -fPIC   -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -DGTEST_HAS_PTHREAD=1 -std=c++11 -o CMakeFiles/gtest_main.dir/src/gtest_main.cc.o -c /usr/src/googletest/googletest/src/gtest_main.cc",
+  "file": "/usr/src/googletest/googletest/src/gtest_main.cc"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/gtest/googletest",
+  "command": "/usr/bin/g++  -DGTEST_CREATE_SHARED_LIBRARY=1 -Dgtest_EXPORTS -I/usr/src/googletest/googletest/include -I/usr/src/googletest/googletest  -g -fPIC   -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=1 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++11 -o CMakeFiles/gtest.dir/src/gtest-all.cc.o -c /usr/src/googletest/googletest/src/gtest-all.cc",
+  "file": "/usr/src/googletest/googletest/src/gtest-all.cc"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/camera",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"camera\\\" -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4  -g   -o CMakeFiles/ball_detecter.dir/src/ball_detecter.cpp.o -c /home/sanji/robot_ws/src/camera/src/ball_detecter.cpp",
+  "file": "/home/sanji/robot_ws/src/camera/src/ball_detecter.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/rplidar_ros",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"rplidar_ros\\\" -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/include -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/src -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -std=c++11  -O3 -DNDEBUG   -o CMakeFiles/rplidarNodeClient.dir/src/client.cpp.o -c /home/sanji/robot_ws/src/rplidar_ros/src/client.cpp",
+  "file": "/home/sanji/robot_ws/src/rplidar_ros/src/client.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/rplidar_ros",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"rplidar_ros\\\" -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/include -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/src -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -std=c++11  -O3 -DNDEBUG   -o CMakeFiles/rplidarNode.dir/src/node.cpp.o -c /home/sanji/robot_ws/src/rplidar_ros/src/node.cpp",
+  "file": "/home/sanji/robot_ws/src/rplidar_ros/src/node.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/rplidar_ros",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"rplidar_ros\\\" -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/include -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/src -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -std=c++11  -O3 -DNDEBUG   -o CMakeFiles/rplidarNode.dir/sdk/src/arch/linux/net_serial.cpp.o -c /home/sanji/robot_ws/src/rplidar_ros/sdk/src/arch/linux/net_serial.cpp",
+  "file": "/home/sanji/robot_ws/src/rplidar_ros/sdk/src/arch/linux/net_serial.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/rplidar_ros",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"rplidar_ros\\\" -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/include -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/src -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -std=c++11  -O3 -DNDEBUG   -o CMakeFiles/rplidarNode.dir/sdk/src/arch/linux/net_socket.cpp.o -c /home/sanji/robot_ws/src/rplidar_ros/sdk/src/arch/linux/net_socket.cpp",
+  "file": "/home/sanji/robot_ws/src/rplidar_ros/sdk/src/arch/linux/net_socket.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/rplidar_ros",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"rplidar_ros\\\" -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/include -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/src -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -std=c++11  -O3 -DNDEBUG   -o CMakeFiles/rplidarNode.dir/sdk/src/arch/linux/timer.cpp.o -c /home/sanji/robot_ws/src/rplidar_ros/sdk/src/arch/linux/timer.cpp",
+  "file": "/home/sanji/robot_ws/src/rplidar_ros/sdk/src/arch/linux/timer.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/rplidar_ros",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"rplidar_ros\\\" -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/include -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/src -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -std=c++11  -O3 -DNDEBUG   -o CMakeFiles/rplidarNode.dir/sdk/src/dataunpacker/dataunpacker.cpp.o -c /home/sanji/robot_ws/src/rplidar_ros/sdk/src/dataunpacker/dataunpacker.cpp",
+  "file": "/home/sanji/robot_ws/src/rplidar_ros/sdk/src/dataunpacker/dataunpacker.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/rplidar_ros",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"rplidar_ros\\\" -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/include -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/src -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -std=c++11  -O3 -DNDEBUG   -o CMakeFiles/rplidarNode.dir/sdk/src/dataunpacker/unpacker/handler_capsules.cpp.o -c /home/sanji/robot_ws/src/rplidar_ros/sdk/src/dataunpacker/unpacker/handler_capsules.cpp",
+  "file": "/home/sanji/robot_ws/src/rplidar_ros/sdk/src/dataunpacker/unpacker/handler_capsules.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/rplidar_ros",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"rplidar_ros\\\" -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/include -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/src -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -std=c++11  -O3 -DNDEBUG   -o CMakeFiles/rplidarNode.dir/sdk/src/dataunpacker/unpacker/handler_hqnode.cpp.o -c /home/sanji/robot_ws/src/rplidar_ros/sdk/src/dataunpacker/unpacker/handler_hqnode.cpp",
+  "file": "/home/sanji/robot_ws/src/rplidar_ros/sdk/src/dataunpacker/unpacker/handler_hqnode.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/rplidar_ros",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"rplidar_ros\\\" -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/include -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/src -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -std=c++11  -O3 -DNDEBUG   -o CMakeFiles/rplidarNode.dir/sdk/src/dataunpacker/unpacker/handler_normalnode.cpp.o -c /home/sanji/robot_ws/src/rplidar_ros/sdk/src/dataunpacker/unpacker/handler_normalnode.cpp",
+  "file": "/home/sanji/robot_ws/src/rplidar_ros/sdk/src/dataunpacker/unpacker/handler_normalnode.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/rplidar_ros",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"rplidar_ros\\\" -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/include -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/src -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -std=c++11  -O3 -DNDEBUG   -o CMakeFiles/rplidarNode.dir/sdk/src/hal/thread.cpp.o -c /home/sanji/robot_ws/src/rplidar_ros/sdk/src/hal/thread.cpp",
+  "file": "/home/sanji/robot_ws/src/rplidar_ros/sdk/src/hal/thread.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/rplidar_ros",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"rplidar_ros\\\" -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/include -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/src -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -std=c++11  -O3 -DNDEBUG   -o CMakeFiles/rplidarNode.dir/sdk/src/rplidar_driver.cpp.o -c /home/sanji/robot_ws/src/rplidar_ros/sdk/src/rplidar_driver.cpp",
+  "file": "/home/sanji/robot_ws/src/rplidar_ros/sdk/src/rplidar_driver.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/rplidar_ros",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"rplidar_ros\\\" -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/include -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/src -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -std=c++11  -O3 -DNDEBUG   -o CMakeFiles/rplidarNode.dir/sdk/src/sl_async_transceiver.cpp.o -c /home/sanji/robot_ws/src/rplidar_ros/sdk/src/sl_async_transceiver.cpp",
+  "file": "/home/sanji/robot_ws/src/rplidar_ros/sdk/src/sl_async_transceiver.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/rplidar_ros",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"rplidar_ros\\\" -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/include -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/src -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -std=c++11  -O3 -DNDEBUG   -o CMakeFiles/rplidarNode.dir/sdk/src/sl_crc.cpp.o -c /home/sanji/robot_ws/src/rplidar_ros/sdk/src/sl_crc.cpp",
+  "file": "/home/sanji/robot_ws/src/rplidar_ros/sdk/src/sl_crc.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/rplidar_ros",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"rplidar_ros\\\" -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/include -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/src -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -std=c++11  -O3 -DNDEBUG   -o CMakeFiles/rplidarNode.dir/sdk/src/sl_lidar_driver.cpp.o -c /home/sanji/robot_ws/src/rplidar_ros/sdk/src/sl_lidar_driver.cpp",
+  "file": "/home/sanji/robot_ws/src/rplidar_ros/sdk/src/sl_lidar_driver.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/rplidar_ros",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"rplidar_ros\\\" -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/include -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/src -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -std=c++11  -O3 -DNDEBUG   -o CMakeFiles/rplidarNode.dir/sdk/src/sl_lidarprotocol_codec.cpp.o -c /home/sanji/robot_ws/src/rplidar_ros/sdk/src/sl_lidarprotocol_codec.cpp",
+  "file": "/home/sanji/robot_ws/src/rplidar_ros/sdk/src/sl_lidarprotocol_codec.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/rplidar_ros",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"rplidar_ros\\\" -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/include -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/src -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -std=c++11  -O3 -DNDEBUG   -o CMakeFiles/rplidarNode.dir/sdk/src/sl_serial_channel.cpp.o -c /home/sanji/robot_ws/src/rplidar_ros/sdk/src/sl_serial_channel.cpp",
+  "file": "/home/sanji/robot_ws/src/rplidar_ros/sdk/src/sl_serial_channel.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/rplidar_ros",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"rplidar_ros\\\" -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/include -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/src -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -std=c++11  -O3 -DNDEBUG   -o CMakeFiles/rplidarNode.dir/sdk/src/sl_tcp_channel.cpp.o -c /home/sanji/robot_ws/src/rplidar_ros/sdk/src/sl_tcp_channel.cpp",
+  "file": "/home/sanji/robot_ws/src/rplidar_ros/sdk/src/sl_tcp_channel.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/rplidar_ros",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"rplidar_ros\\\" -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/include -I/home/sanji/robot_ws/src/rplidar_ros/./sdk/src -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -std=c++11  -O3 -DNDEBUG   -o CMakeFiles/rplidarNode.dir/sdk/src/sl_udp_channel.cpp.o -c /home/sanji/robot_ws/src/rplidar_ros/sdk/src/sl_udp_channel.cpp",
+  "file": "/home/sanji/robot_ws/src/rplidar_ros/sdk/src/sl_udp_channel.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/ball_detection",
+  "command": "/usr/bin/g++  -DDISABLE_LIBUSB_1_0 -DDISABLE_PCAP -DDISABLE_PNG -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"ball_detection\\\" -Dball_detection_EXPORTS -Dqh_QHpointer -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/eigen3 -I/usr/include/pcl-1.10 -I/usr/include/ni -I/usr/include/openni2    -g -fPIC   -o CMakeFiles/ball_detection.dir/src/render/render.cpp.o -c /home/sanji/robot_ws/src/ball_detection/src/render/render.cpp",
+  "file": "/home/sanji/robot_ws/src/ball_detection/src/render/render.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/ball_detection",
+  "command": "/usr/bin/g++  -DDISABLE_LIBUSB_1_0 -DDISABLE_PCAP -DDISABLE_PNG -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"ball_detection\\\" -Dball_detection_EXPORTS -Dqh_QHpointer -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/eigen3 -I/usr/include/pcl-1.10 -I/usr/include/ni -I/usr/include/openni2    -g -fPIC   -o CMakeFiles/ball_detection.dir/src/processPointClouds.cpp.o -c /home/sanji/robot_ws/src/ball_detection/src/processPointClouds.cpp",
+  "file": "/home/sanji/robot_ws/src/ball_detection/src/processPointClouds.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/ball_detection",
+  "command": "/usr/bin/g++  -DDISABLE_LIBUSB_1_0 -DDISABLE_PCAP -DDISABLE_PNG -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"ball_detection\\\" -Dqh_QHpointer -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -isystem /usr/include/vtk-7.1 -isystem /usr/include/freetype2 -isystem /usr/include/eigen3 -isystem /usr/include/pcl-1.10 -isystem /usr/include/ni -isystem /usr/include/openni2    -g   -o CMakeFiles/ball_det.dir/src/ball_detection.cpp.o -c /home/sanji/robot_ws/src/ball_detection/src/ball_detection.cpp",
+  "file": "/home/sanji/robot_ws/src/ball_detection/src/ball_detection.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/ball_detection",
+  "command": "/usr/bin/g++  -DDISABLE_LIBUSB_1_0 -DDISABLE_PCAP -DDISABLE_PNG -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"ball_detection\\\" -Dqh_QHpointer -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -isystem /usr/include/vtk-7.1 -isystem /usr/include/freetype2 -isystem /usr/include/eigen3 -isystem /usr/include/pcl-1.10 -isystem /usr/include/ni -isystem /usr/include/openni2    -g   -o CMakeFiles/ball_det.dir/src/render/render.cpp.o -c /home/sanji/robot_ws/src/ball_detection/src/render/render.cpp",
+  "file": "/home/sanji/robot_ws/src/ball_detection/src/render/render.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/ball_detection",
+  "command": "/usr/bin/g++  -DDISABLE_LIBUSB_1_0 -DDISABLE_PCAP -DDISABLE_PNG -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"ball_detection\\\" -Dqh_QHpointer -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -isystem /usr/include/vtk-7.1 -isystem /usr/include/freetype2 -isystem /usr/include/eigen3 -isystem /usr/include/pcl-1.10 -isystem /usr/include/ni -isystem /usr/include/openni2    -g   -o CMakeFiles/ball_det.dir/src/processPointClouds.cpp.o -c /home/sanji/robot_ws/src/ball_detection/src/processPointClouds.cpp",
+  "file": "/home/sanji/robot_ws/src/ball_detection/src/processPointClouds.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/main",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"main\\\" -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4 -I/usr/include/eigen3 -I/usr/include/pcl-1.10 -I/usr/include/vtk-7.1 -I/usr/include/freetype2  -g   -o CMakeFiles/main.dir/src/main.cpp.o -c /home/sanji/robot_ws/src/main/src/main.cpp",
+  "file": "/home/sanji/robot_ws/src/main/src/main.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/lidar",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"lidar\\\" -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/eigen3 -I/usr/include/pcl-1.10 -I/usr/include/vtk-7.1 -I/usr/include/freetype2  -g   -o CMakeFiles/back_checker.dir/src/back_checker.cpp.o -c /home/sanji/robot_ws/src/lidar/src/back_checker.cpp",
+  "file": "/home/sanji/robot_ws/src/lidar/src/back_checker.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/lidar",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"lidar\\\" -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/eigen3 -I/usr/include/pcl-1.10 -I/usr/include/vtk-7.1 -I/usr/include/freetype2  -g   -o CMakeFiles/wheel_filter.dir/src/wheel_filter.cpp.o -c /home/sanji/robot_ws/src/lidar/src/wheel_filter.cpp",
+  "file": "/home/sanji/robot_ws/src/lidar/src/wheel_filter.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/wall_detection",
+  "command": "/usr/bin/g++  -DDISABLE_LIBUSB_1_0 -DDISABLE_PCAP -DDISABLE_PNG -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"wall_detection\\\" -Dqh_QHpointer -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -isystem /usr/include/vtk-7.1 -isystem /usr/include/freetype2 -isystem /usr/include/eigen3 -isystem /usr/include/pcl-1.10 -isystem /usr/include/ni -isystem /usr/include/openni2    -g   -o CMakeFiles/environment.dir/src/environment.cpp.o -c /home/sanji/robot_ws/src/wall_detection/src/environment.cpp",
+  "file": "/home/sanji/robot_ws/src/wall_detection/src/environment.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/wall_detection",
+  "command": "/usr/bin/g++  -DDISABLE_LIBUSB_1_0 -DDISABLE_PCAP -DDISABLE_PNG -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"wall_detection\\\" -Dqh_QHpointer -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -isystem /usr/include/vtk-7.1 -isystem /usr/include/freetype2 -isystem /usr/include/eigen3 -isystem /usr/include/pcl-1.10 -isystem /usr/include/ni -isystem /usr/include/openni2    -g   -o CMakeFiles/environment.dir/src/render/render.cpp.o -c /home/sanji/robot_ws/src/wall_detection/src/render/render.cpp",
+  "file": "/home/sanji/robot_ws/src/wall_detection/src/render/render.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/wall_detection",
+  "command": "/usr/bin/g++  -DDISABLE_LIBUSB_1_0 -DDISABLE_PCAP -DDISABLE_PNG -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"wall_detection\\\" -Dqh_QHpointer -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -isystem /usr/include/vtk-7.1 -isystem /usr/include/freetype2 -isystem /usr/include/eigen3 -isystem /usr/include/pcl-1.10 -isystem /usr/include/ni -isystem /usr/include/openni2    -g   -o CMakeFiles/environment.dir/src/processPointClouds.cpp.o -c /home/sanji/robot_ws/src/wall_detection/src/processPointClouds.cpp",
+  "file": "/home/sanji/robot_ws/src/wall_detection/src/processPointClouds.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/wall_detection",
+  "command": "/usr/bin/g++  -DDISABLE_LIBUSB_1_0 -DDISABLE_PCAP -DDISABLE_PNG -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"wall_detection\\\" -Dqh_QHpointer -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -Dwall_detection_EXPORTS -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/eigen3 -I/usr/include/pcl-1.10 -I/usr/include/ni -I/usr/include/openni2    -g -fPIC   -o CMakeFiles/wall_detection.dir/src/render/render.cpp.o -c /home/sanji/robot_ws/src/wall_detection/src/render/render.cpp",
+  "file": "/home/sanji/robot_ws/src/wall_detection/src/render/render.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/wall_detection",
+  "command": "/usr/bin/g++  -DDISABLE_LIBUSB_1_0 -DDISABLE_PCAP -DDISABLE_PNG -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"wall_detection\\\" -Dqh_QHpointer -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -Dwall_detection_EXPORTS -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/eigen3 -I/usr/include/pcl-1.10 -I/usr/include/ni -I/usr/include/openni2    -g -fPIC   -o CMakeFiles/wall_detection.dir/src/processPointClouds.cpp.o -c /home/sanji/robot_ws/src/wall_detection/src/processPointClouds.cpp",
+  "file": "/home/sanji/robot_ws/src/wall_detection/src/processPointClouds.cpp"
+}
+]

@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/sanji/robot_ws/src/build/devel/setup.sh
