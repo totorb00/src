@@ -16,6 +16,7 @@
 #include <std_msgs/UInt8.h>
 #include <std_msgs/Int8.h>
 #include <std_msgs/UInt16.h>
+#include <std_msgs/Int16.h>
 
 
 int game_status = 5;//game_status = [1]:Robot is starting zone;
@@ -67,6 +68,8 @@ int silo_dist = 0;
 geometry_msgs::Twist vel_pub;
 std_msgs::Int8 BLDC;
 std_msgs::UInt16 dcPos;
+std_msgs::Int16 reset_cordinate;
+
 void velocity_publishing(int x, int y, int z){
     vel_pub.linear.x = x;
     vel_pub.linear.y = y;
@@ -96,18 +99,7 @@ int PID(double kp, double ki, double kd, float setpoint, float processVariable, 
         }
         return out;
 }
-// int slow_PID(double kp, int set_point, int processVariable)
-// {
-//     double error_slow;
-//     double out_slow;
-//     error_slow = set_point - processVariable;
-//     out_slow = kp * error_slow;
-//         if(out_slow > 80)
-//             out_slow = 80;
-//         if (out_slow < -80)
-//             out_slow = -80;
-//         return out_slow;
-// }
+
 
 void camera_detect(const std_msgs::String::ConstPtr& ball_detect)
 {
@@ -212,8 +204,10 @@ void encoder_call(const std_msgs::Int16MultiArray::ConstPtr& encoder_data){
 void sensor_clk(const std_msgs::Int8MultiArray::ConstPtr& sensor_data)
 {
     ROS_INFO("%d", sensor_data->data[0]);
-    if(((sensor_data->data[0] | 0b11011111) == 0b11011111) || ((sensor_data->data[0] | 0b11101111) == 0b11101111) ){
+    if(((sensor_data->data[0] & 0b00010000 == 0b00010000) || (sensor_data->data[0] & 0b00100000==0b00100000) )&& sensor_data->data[0] & 0b01000000 == 0b01000000    ){
         robot_ball = true;
+    // if(sensor_data->data[0]==48){
+    //     robot_ball = true;
     }else{
         robot_ball = false;
     }
@@ -272,18 +266,19 @@ int main(int argc, char **argv)
     
     ros::Subscriber  keychecker_sub = nh.subscribe("/key_checker", 10, &key_changed);//waiting starting commmand(from python code or STM32 IR sensor)
     ros::Subscriber back = nh.subscribe("/wall", 10, &wall_clk);//checking back side Start or Retry zone    
-    ros::Subscriber sensor_status = nh.subscribe("/sensor", 10, &sensor_clk);
+    ros::Subscriber sensor_status = nh.subscribe("/sensor", 100, &sensor_clk);
     ros::Subscriber imu_check = nh.subscribe("/imu", 10, &imu_callback);//Imu hazaih ued true false butsaana
-    ros::Publisher speed = nh.advertise<geometry_msgs::Twist>("/cmd_vel", 10);
+    ros::Publisher speed = nh.advertise<geometry_msgs::Twist>("/cmd_vel", 100);
     ros::Subscriber camera = nh.subscribe("/camera_data", 10, &camera_detect);//from darknet 
-    ros::Publisher brushless = nh.advertise<std_msgs::Int8>("/brushdc", 10);
+    ros::Publisher brushless = nh.advertise<std_msgs::Int8>("/brushdc", 20);
     ros::Subscriber encoder = nh.subscribe("/encoder", 10, &encoder_call);
-    ros::Publisher  dc_pos = nh.advertise<std_msgs::UInt16>("pos_cmd", 10);
+    ros::Publisher  dc_pos = nh.advertise<std_msgs::UInt16>("pos_cmd", 30);
+    ros::Publisher res_encoder = nh.advertise<std_msgs::Int16>("coordinate", 10);
     
     silo_dist = (silo.back() - 1) * 75 + 50;
     silo.pop_back();
 
-    ros::Rate loop_rate(100);  
+    ros::Rate loop_rate(200);  
     while(ros::ok()){
         // system("clear");
         // std::cout<<"Game status is "<<game_status<<std::endl;
@@ -402,6 +397,8 @@ int main(int argc, char **argv)
                             //turn left 90 degree function
                             //if
                         }
+                        reset_cordinate.data = 0;
+                        res_encoder.publish(reset_cordinate);
                         game_status = 5;
                     }
                 // }
@@ -443,6 +440,7 @@ int main(int argc, char **argv)
                     // ROS_INFO("W = %d", w);
                     
                     if(!((w <= camera_point_y + 5) && (u <= camera_point_x + 3) && (u >= camera_point_x - 3))){  
+
                         vel_pub.linear.y = PID(0.6, 0, 0, camera_point_y, w, 70 , 10);
                         vel_pub.linear.x = -PID(0.6, 0, 0, camera_point_x, u, 70, 10);       
                         vel_pub.angular.z = 0;
@@ -454,15 +452,22 @@ int main(int argc, char **argv)
 
                     }else{
                         while(!robot_ball){
+
                             velocity_publishing(0,-50,0);
                             speed.publish(vel_pub);
+                            ros::spinOnce();      
+
                         }
+
                         velocity_publishing(0,0,0);
                         speed.publish(vel_pub);
+
                     }
                     if(robot_ball){
+
                         game_status = 7;
                         prev_theta = robot_theta + 45;
+
                     }
                 }else{
                     
@@ -497,22 +502,9 @@ int main(int argc, char **argv)
                         game_status = 8;
                     }
                     
-                    // if(robot_theta != last_theta){
-                    //     vel_pub.angular.z = -PID(2.5, 0, 0, last_theta, robot_theta, 80);
-                    // }else{
-                    //     vel_pub.angular.z = 0;
-                    // }
-                    // vel_pub.linear.x=0;
-                    // vel_pub.angular.z=0;    
-                    // speed.publish(vel_pub);
                     ROS_INFO("last_x =========== [%d]", last_x);
                     ROS_INFO("last_y =========== [%d]", last_y);
                     
-                    // if(robot_x == last_x && robot_y == last_y && robot_theta == last_theta){
-                    //     prev_theta = robot_theta + 180;
-                    //     game_status = 8;
-
-                    // }
                 }else{
                     if(prev_theta >= robot_theta){
                         vel_pub.linear.x = 0;
@@ -530,10 +522,10 @@ int main(int argc, char **argv)
             
             else if(game_status == 8){
                 system("clear");
-                if(last_theta + 170 >= robot_theta || last_theta + 180 <= robot_theta){
+                if(255 >= robot_theta || 280 <= robot_theta){
                     vel_pub.linear.x = 0;
                     vel_pub.linear.y = 0;
-                    vel_pub.angular.z = -PID(0.6, 0, 0, prev_theta, robot_theta, 127, 40);
+                    vel_pub.angular.z = -PID(0.6, 0, 0, 270, robot_theta, 127, 40);
                     speed.publish(vel_pub);
                 }else{
                     // if(theta<88||theta>92){
@@ -563,12 +555,13 @@ int main(int argc, char **argv)
                     // }else{
                     //     vel_pub.linear.x = 0;
                     // }
-                    if(front_distance > 190){
+                    if(front_distance > 175){
                         game_status = 17;
+                        
                     }else{
-                       vel_pub.linear.y = -PID(0.8, 0, 0, last_y, robot_y, 127, 40);
+                       vel_pub.linear.y = PID(0.8, 0, 0, 175, front_distance, 127, 40);
                     }
-                    vel_pub.angular.z = PID(2.0, 0, 0, 90, theta, 127, 40);
+                    vel_pub.angular.z = -PID(2.0, 0, 0, 90, theta, 127, 40);
 
                     speed.publish(vel_pub);
                 }
@@ -598,22 +591,25 @@ int main(int argc, char **argv)
                 if(theta<88||theta>92){
                     vel_pub.angular.z = PID(2, 0, 0, 90, theta, 127, 30);
                 }else{
-            
-                    
-                    if(distance <= silo_dist + 1 && distance >= silo_dist - 1 && front_distance <= 34 && theta < 92 && theta > 90)  {
+                    if(distance <= silo_dist + 1 && distance >= silo_dist - 1 && front_distance <= 34 )  {
                             BLDC.data = 2;
                             brushless.publish(BLDC);
                             velocity_publishing(0,0,0);
                             speed.publish(vel_pub);
+                            reset_cordinate.data = 270;
+                            res_encoder.publish(reset_cordinate);
+                            // ros::spinOnce();
                             sleep(2);
                             game_status = 9;
+                            
+
                     }else{
                         ROS_INFO("silo dist = [%d]", silo_dist);
                         ROS_INFO("left distance = [%d]", distance);
 
-                        vel_pub.linear.x =  op*PID(1.5, 0, 0, silo_dist, distance, 100, 15);
+                        vel_pub.linear.x =  op*PID(1.2, 0, 0, silo_dist, distance, 110, 15);
                         vel_pub.linear.y = PID(0.8, 0, 0, 33, front_distance, 100, 0);
-                        vel_pub.angular.z = PID(1.2, 0, 0, 90, theta, 127, 5);
+                        vel_pub.angular.z = -PID(2.3, 0, 0, 90, theta, 80, 0);
                         speed.publish(vel_pub);
                     }
                 }
@@ -638,18 +634,24 @@ int main(int argc, char **argv)
             
             else if(game_status == 17){
                 
-                if(robot_theta >= last_theta){
+                if(robot_theta >= 92){
+
                     vel_pub.linear.x = 0;
                     vel_pub.linear.y = 0;
                     vel_pub.angular.z = -PID(1.5, 0, 0, 90, robot_theta, 127, 40);
                     speed.publish(vel_pub);
+
                 }else{
-                    last_theta = robot_theta;
-                    last_x = robot_x;
-                    last_y = robot_y;
+
+                    // reset_cordinate.data = 90;
+                    // res_encoder.publish(reset_cordinate);
                     silo_dist = (silo.back() - 1) * 75 + 50;
                     silo.pop_back();
+                    last_theta = 90;
+                    last_x = robot_x;
+                    last_y = robot_y;
                     game_status = 6;
+
                 }
             }
         }

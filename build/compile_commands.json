@@ -20,6 +20,26 @@
   "file": "/usr/src/googletest/googletest/src/gtest-all.cc"
 },
 {
+  "directory": "/home/sanji/robot_ws/src/build/rosserial/rosserial_server",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"rosserial_server\\\" -I/home/sanji/robot_ws/src/rosserial/rosserial_server/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -g   -o CMakeFiles/rosserial_server_socket_node.dir/src/socket_node.cpp.o -c /home/sanji/robot_ws/src/rosserial/rosserial_server/src/socket_node.cpp",
+  "file": "/home/sanji/robot_ws/src/rosserial/rosserial_server/src/socket_node.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/rosserial/rosserial_server",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"rosserial_server\\\" -Drosserial_server_lookup_EXPORTS -I/home/sanji/robot_ws/src/rosserial/rosserial_server/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -isystem /usr/include/python3.8  -g -fPIC   -o CMakeFiles/rosserial_server_lookup.dir/src/msg_lookup.cpp.o -c /home/sanji/robot_ws/src/rosserial/rosserial_server/src/msg_lookup.cpp",
+  "file": "/home/sanji/robot_ws/src/rosserial/rosserial_server/src/msg_lookup.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/rosserial/rosserial_server",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"rosserial_server\\\" -I/home/sanji/robot_ws/src/rosserial/rosserial_server/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -g   -o CMakeFiles/rosserial_server_serial_node.dir/src/serial_node.cpp.o -c /home/sanji/robot_ws/src/rosserial/rosserial_server/src/serial_node.cpp",
+  "file": "/home/sanji/robot_ws/src/rosserial/rosserial_server/src/serial_node.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/rosserial/rosserial_server",
+  "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"rosserial_server\\\" -I/home/sanji/robot_ws/src/rosserial/rosserial_server/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp  -g   -o CMakeFiles/rosserial_server_udp_socket_node.dir/src/udp_socket_node.cpp.o -c /home/sanji/robot_ws/src/rosserial/rosserial_server/src/udp_socket_node.cpp",
+  "file": "/home/sanji/robot_ws/src/rosserial/rosserial_server/src/udp_socket_node.cpp"
+},
+{
   "directory": "/home/sanji/robot_ws/src/build/camera",
   "command": "/usr/bin/g++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"camera\\\" -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4  -g   -o CMakeFiles/ball_detecter.dir/src/ball_detecter.cpp.o -c /home/sanji/robot_ws/src/camera/src/ball_detecter.cpp",
   "file": "/home/sanji/robot_ws/src/camera/src/ball_detecter.cpp"
@@ -116,16 +136,6 @@
 },
 {
   "directory": "/home/sanji/robot_ws/src/build/ball_detection",
-  "command": "/usr/bin/g++  -DDISABLE_LIBUSB_1_0 -DDISABLE_PCAP -DDISABLE_PNG -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"ball_detection\\\" -Dball_detection_EXPORTS -Dqh_QHpointer -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/eigen3 -I/usr/include/pcl-1.10 -I/usr/include/ni -I/usr/include/openni2    -g -fPIC   -o CMakeFiles/ball_detection.dir/src/render/render.cpp.o -c /home/sanji/robot_ws/src/ball_detection/src/render/render.cpp",
-  "file": "/home/sanji/robot_ws/src/ball_detection/src/render/render.cpp"
-},
-{
-  "directory": "/home/sanji/robot_ws/src/build/ball_detection",
-  "command": "/usr/bin/g++  -DDISABLE_LIBUSB_1_0 -DDISABLE_PCAP -DDISABLE_PNG -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"ball_detection\\\" -Dball_detection_EXPORTS -Dqh_QHpointer -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/eigen3 -I/usr/include/pcl-1.10 -I/usr/include/ni -I/usr/include/openni2    -g -fPIC   -o CMakeFiles/ball_detection.dir/src/processPointClouds.cpp.o -c /home/sanji/robot_ws/src/ball_detection/src/processPointClouds.cpp",
-  "file": "/home/sanji/robot_ws/src/ball_detection/src/processPointClouds.cpp"
-},
-{
-  "directory": "/home/sanji/robot_ws/src/build/ball_detection",
   "command": "/usr/bin/g++  -DDISABLE_LIBUSB_1_0 -DDISABLE_PCAP -DDISABLE_PNG -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"ball_detection\\\" -Dqh_QHpointer -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -isystem /usr/include/vtk-7.1 -isystem /usr/include/freetype2 -isystem /usr/include/eigen3 -isystem /usr/include/pcl-1.10 -isystem /usr/include/ni -isystem /usr/include/openni2    -g   -o CMakeFiles/ball_det.dir/src/ball_detection.cpp.o -c /home/sanji/robot_ws/src/ball_detection/src/ball_detection.cpp",
   "file": "/home/sanji/robot_ws/src/ball_detection/src/ball_detection.cpp"
 },
@@ -137,6 +147,16 @@
 {
   "directory": "/home/sanji/robot_ws/src/build/ball_detection",
   "command": "/usr/bin/g++  -DDISABLE_LIBUSB_1_0 -DDISABLE_PCAP -DDISABLE_PNG -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"ball_detection\\\" -Dqh_QHpointer -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -isystem /usr/include/vtk-7.1 -isystem /usr/include/freetype2 -isystem /usr/include/eigen3 -isystem /usr/include/pcl-1.10 -isystem /usr/include/ni -isystem /usr/include/openni2    -g   -o CMakeFiles/ball_det.dir/src/processPointClouds.cpp.o -c /home/sanji/robot_ws/src/ball_detection/src/processPointClouds.cpp",
+  "file": "/home/sanji/robot_ws/src/ball_detection/src/processPointClouds.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/ball_detection",
+  "command": "/usr/bin/g++  -DDISABLE_LIBUSB_1_0 -DDISABLE_PCAP -DDISABLE_PNG -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"ball_detection\\\" -Dball_detection_EXPORTS -Dqh_QHpointer -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/eigen3 -I/usr/include/pcl-1.10 -I/usr/include/ni -I/usr/include/openni2    -g -fPIC   -o CMakeFiles/ball_detection.dir/src/render/render.cpp.o -c /home/sanji/robot_ws/src/ball_detection/src/render/render.cpp",
+  "file": "/home/sanji/robot_ws/src/ball_detection/src/render/render.cpp"
+},
+{
+  "directory": "/home/sanji/robot_ws/src/build/ball_detection",
+  "command": "/usr/bin/g++  -DDISABLE_LIBUSB_1_0 -DDISABLE_PCAP -DDISABLE_PNG -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"ball_detection\\\" -Dball_detection_EXPORTS -Dqh_QHpointer -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/eigen3 -I/usr/include/pcl-1.10 -I/usr/include/ni -I/usr/include/openni2    -g -fPIC   -o CMakeFiles/ball_detection.dir/src/processPointClouds.cpp.o -c /home/sanji/robot_ws/src/ball_detection/src/processPointClouds.cpp",
   "file": "/home/sanji/robot_ws/src/ball_detection/src/processPointClouds.cpp"
 },
 {

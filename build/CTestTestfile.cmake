@@ -7,6 +7,7 @@
 subdirs("gtest")
 subdirs("rosserial/rosserial")
 subdirs("rosserial/rosserial_python")
+subdirs("rosserial/rosserial_server")
 subdirs("camera")
 subdirs("rplidar_ros")
 subdirs("ball_detection")
