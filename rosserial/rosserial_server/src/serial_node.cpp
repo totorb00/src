@@ -47,7 +47,7 @@ int main(int argc, char* argv[])
   std::string port;
   int baud;
   ros::param::param<std::string>("~port", port, "/dev/ttyACM0");
-  ros::param::param<int>("~baud", baud, 115200);
+  ros::param::param<int>("~baud", baud, 460800);
 
   boost::asio::io_service io_service;
   rosserial_server::SerialSession serial_session(io_service, port, baud);
