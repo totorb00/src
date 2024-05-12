@@ -64,6 +64,7 @@ int prev_theta = 0;
 
 std::vector<int> silo{2, 2, 2, 4, 4, 4, 3, 3, 3};
 int silo_dist = 0;
+bool ir_ball = false;
 
 geometry_msgs::Twist vel_pub;
 std_msgs::Int8 BLDC;
@@ -229,6 +230,8 @@ void key_changed(const std_msgs::String::ConstPtr& msg)//this flag is start or s
     if(msg->data == "r"){//retry
         ROS_INFO("[Admin] key pressed: [%s]", msg->data.c_str());
         start_cmd = true;
+        // reset_cordinate.data = 0;
+        // res_encoder.publish(reset_cordinate);
         game_status = 4; 
     }
 
@@ -314,11 +317,15 @@ int main(int argc, char **argv)
             }else if(game_status == 3){
                 if(prev_status == 2){
                     game_status = 4;
-                }else if(prev_status == 0){vel_pub.angular.z= PID(0.6, 0.0, 0.000, 90, theta, 127, 20);//int utga butsaana
+                }else if(prev_status == 0){
+                    vel_pub.angular.z= PID(0.6, 0.0, 0.000, 90, theta, 127, 20);//int utga butsaana
                     if(game_side == false){
                         ROS_WARN_ONCE("The ROBOT waiting start cmd!!!");
                         ROS_WARN_ONCE("The ROBOT IS IN RETRY!!!");
                         if(start_cmd){
+                            if(robot_theta == 0){
+
+                            }
                             game_status = 4;
                         }else{
                             velocity_publishing(0, 0, 0);
@@ -350,17 +357,17 @@ int main(int argc, char **argv)
                 }
                 system("clear");
                 
-                if(vel_pub.linear.x < 8 && vel_pub.linear.x > -8 && vel_pub.linear.y < 8 && vel_pub.linear.y > -8 && theta > 87 && theta < 93){
-                    game_status=20;
+                if(vel_pub.linear.x < 12&& vel_pub.linear.x > -12 && vel_pub.linear.y < 12&& vel_pub.linear.y > -8 && theta > 85&& theta < 95   ){
+                    game_status = 20;
                 }else{
                     ROS_INFO("left distance = %d", left_distance);
                     ROS_INFO("front distance = %d", front_distance);
                     ROS_INFO("thete of left = %f", theta);
-                    vel_pub.linear.x = PID(0.7, 0.0, 0.00, left_setpoint, left_distance, 127, 20);
-                    vel_pub.linear.y = op*PID(0.7, 0.0, 0.00, front_setpoint, distance, 127, 20);
+                    vel_pub.linear.x = PID(0.7, 0.0, 0.00, left_setpoint, left_distance, 127, 10);
+                    vel_pub.linear.y = op*PID(0.7, 0.0, 0.00, front_setpoint, distance, 127, 10);
                     vel_pub.angular.z = op*PID(2, 0.0, 0.00, 90, theta, 127, 20);
                     speed.publish(vel_pub);
-                    last_y = robot_y + op*300;
+                    last_y = robot_y + op*250;
                 }
                 // }
             }
@@ -410,7 +417,7 @@ int main(int argc, char **argv)
 
                         vel_pub.linear.y = PID(0.6, 0, 0, camera_point_y, w, 70 , 10);
                         vel_pub.linear.x = -PID(0.6, 0, 0, camera_point_x, u, 70, 10);       
-                        vel_pub.angular.z = 0;
+                        vel_pub.angular.z = -PID(2.5, 0, 0, 90, robot_theta, 127, 20);
                         speed.publish(vel_pub);
                         ROS_INFO("nearest_ball : [%d]", nearest_ball);
                         ROS_INFO("X: - [%d]", u);
@@ -423,7 +430,7 @@ int main(int argc, char **argv)
                         velocity_publishing(0,0,0);
                         speed.publish(vel_pub);
                         game_status = 7;
-                        prev_theta = robot_theta + 45;
+                        prev_theta = robot_theta + 90;
                     }
 
                 }else{
@@ -449,10 +456,10 @@ int main(int argc, char **argv)
                     ROS_INFO("diff_x = [%d]", diff_x);
                     ROS_INFO("diff_y = [%d]", diff_y);  
                     
-                    if((diff_x>3 || diff_x<-3) && (diff_y>3 || diff_y<-3)){
+                    if(abs(last_x-robot_x)!=0 && abs(last_y-robot_y)!=0 ){
                         vel_pub.linear.x = -PID(1, 0, 0, 0, diff_x, 100, 10);
                         vel_pub.linear.y = PID(1, 0, 0, 0, diff_y, 100, 10);
-                        vel_pub.angular.z = 0;
+                        vel_pub.angular.z = -PID(2.5, 0, 0, 90, robot_theta, 127, 20);
                         speed.publish(vel_pub);
                     }else{
                         
@@ -466,6 +473,7 @@ int main(int argc, char **argv)
                     
                 }else{
                     if(prev_theta >= robot_theta){
+
                         vel_pub.linear.x = 0;
                         vel_pub.linear.y = 0;
                         vel_pub.angular.z = -127;//-PID(1.2, 0, 0, prev_theta, robot_theta, 100);
@@ -473,7 +481,7 @@ int main(int argc, char **argv)
                     }else{
                         BLDC.data = 2;
                         brushless.publish(BLDC);
-                        prev_theta-=45;
+                        prev_theta-=90;
                         game_status = 15;
                     }
                 }
@@ -528,14 +536,14 @@ int main(int argc, char **argv)
                 int op=0;
                 if(ongo == "red"){
                     op = 1;
-                    distance = left_distance + 20;
+                    distance = left_distance + 22;
                 }
                 if(ongo == "blue"){
                     op = -1;
-                    distance = right_distance - 20;
+                    distance = right_distance - 22;
                 }                    
                 if(theta<88||theta>92){
-                    vel_pub.angular.z = PID(2, 0, 0, 90, theta, 127, 30);
+                    vel_pub.angular.z = -PID(2.5, 0, 0, 90, theta, 127, 30);// hasah bolgoson 
                 }else{
                     if(distance <= silo_dist + 1 && distance >= silo_dist - 1 && front_distance <= 34 )  {
                             BLDC.data = 2;
@@ -553,9 +561,9 @@ int main(int argc, char **argv)
                         ROS_INFO("silo dist     = [%d]", silo_dist);
                         ROS_INFO("left distance = [%d]", distance);
 
-                        vel_pub.linear.x =  op*PID(1.0, 0, 0, silo_dist, distance, 110, 30);
-                        vel_pub.linear.y = PID(0.6, 0, 0, 30, front_distance, 80, 20);
-                        vel_pub.angular.z = 0;//PID(2.5, 0, 0, 90, theta, 80, 0);
+                        vel_pub.linear.x =  op*PID(1.0, 0, 0, silo_dist, distance, 90, 30);
+                        vel_pub.linear.y = PID(0.6, 0, 0, 30, front_distance, 50, 15);
+                        vel_pub.angular.z = -PID(3, 0, 0, 90, theta, 127, 30);
                         speed.publish(vel_pub);
                     }
                 }
