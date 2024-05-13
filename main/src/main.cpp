@@ -62,7 +62,7 @@ int last_theta = 0;
 int true_ball = 0;
 int prev_theta = 0;
 
-std::vector<int> silo{2, 2, 2, 4, 4, 4, 3, 3, 3};
+std::vector<int> silo{4, 3, 2, 2, 3, 4, 4, 3, 2};
 int silo_dist = 0;
 bool ir_ball = false;
 
@@ -357,14 +357,14 @@ int main(int argc, char **argv)
                 }
                 system("clear");
                 
-                if(vel_pub.linear.x < 5&& vel_pub.linear.x > -5 && vel_pub.linear.y < 5&& vel_pub.linear.y > -5 && theta > 88&& theta < 92   ){
+                if(vel_pub.linear.x < 5&& vel_pub.linear.x > -5 && vel_pub.linear.y < 5&& vel_pub.linear.y > -5 && theta > 86&& theta < 94   ){
                     game_status = 20;
                 }else{
                     ROS_INFO("left distance = %d", left_distance);
                     ROS_INFO("front distance = %d", front_distance);
                     ROS_INFO("thete of left = %f", theta);
-                    vel_pub.linear.x = PID(0.7, 0.0, 0.00, left_setpoint, left_distance, 127, 20);
-                    vel_pub.linear.y = op*PID(0.7, 0.0, 0.00, front_setpoint, distance, 127, 20);
+                    vel_pub.linear.x = PID(0.8, 0.0, 0.00, left_setpoint, left_distance, 127, 3);
+                    vel_pub.linear.y = op*PID(0.8, 0.0, 0.00, front_setpoint, distance, 127, 3);
                     vel_pub.angular.z = op*PID(3, 0.0, 0.00, 90, theta, 127, 20);
                     speed.publish(vel_pub);
                     last_y = robot_y + op*250;
@@ -539,11 +539,11 @@ int main(int argc, char **argv)
                 int op=0;
                 if(ongo == "red"){
                     op = 1;
-                    distance = left_distance + 23;
+                    distance = left_distance + 22;
                 }
                 if(ongo == "blue"){
                     op = -1;
-                    distance = right_distance - 23;
+                    distance = right_distance - 22;
                 }                    
                 if(theta<88||theta>92){
                     vel_pub.angular.z = -PID(2.5, 0, 0, 90, theta, 127, 30);// hasah bolgoson 
