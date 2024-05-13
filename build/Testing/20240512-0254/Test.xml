@@ -14,21 +14,21 @@
 	VendorString="GenuineIntel"
 	VendorID="Intel Corporation"
 	FamilyID="6"
-	ModelID="141"
-	ProcessorCacheSize="24576"
-	NumberOfLogicalCPU="16"
-	NumberOfPhysicalCPU="8"
+	ModelID="140"
+	ProcessorCacheSize="8192"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="4"
 	TotalVirtualMemory="2047"
-	TotalPhysicalMemory="15731"
+	TotalPhysicalMemory="7665"
 	LogicalProcessorsPerPhysical="2"
-	ProcessorClockFrequency="2300"
+	ProcessorClockFrequency="1400"
 	>
 	<Testing>
-		<StartDateTime>May 12 21:04 +08</StartDateTime>
-		<StartTestTime>1715519041</StartTestTime>
+		<StartDateTime>May 13 01:24 +08</StartDateTime>
+		<StartTestTime>1715534678</StartTestTime>
 		<TestList/>
-		<EndDateTime>May 12 21:04 +08</EndDateTime>
-		<EndTestTime>1715519041</EndTestTime>
+		<EndDateTime>May 13 01:24 +08</EndDateTime>
+		<EndTestTime>1715534678</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>
