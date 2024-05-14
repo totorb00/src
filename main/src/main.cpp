@@ -237,6 +237,8 @@ void key_changed(const std_msgs::String::ConstPtr& msg)//this flag is start or s
         start_cmd = true;
         // reset_cordinate.data = 0;
         // res_encoder.publish(reset_cordinate);
+        // dcPos.data=150;
+        // dc_pos.publish(dcPos);
         game_status = 4; 
     }
     start_cmd = false;
@@ -319,7 +321,7 @@ int main(int argc, char **argv)
                     vel_pub.linear.y =  op*127;
                     vel_pub.angular.z= (-1)*op*PID(1.6,  0.0, 0.000, 90, theta, 127, 20);//int utga butsaana
                     speed.publish(vel_pub);
-                    last_y = robot_y - op*200;
+                    last_y = robot_y - op*300;
                 }else{
                     game_status=19;
                 }
@@ -441,7 +443,7 @@ int main(int argc, char **argv)
                 if(take_ball == true){//bomgog haragdah uyed 
                     // system("clear");
                     // ROS_INFO("W = %d", w);
-                    
+                    if(robot_x )
                     if(!((w <= camera_point_y + 5) && (u <= camera_point_x + 3) && (u >= camera_point_x - 3))){  
 
                         vel_pub.linear.y = PID(0.5, 0, 0, camera_point_y, w, 60 , 5);
@@ -659,7 +661,7 @@ int main(int argc, char **argv)
                 }
                 if((robot_y * op) >= (last_y * op)){
                     vel_pub.linear.x = 0;
-                    vel_pub.linear.y = op*127;
+                    vel_pub.linear.y = op*100;
                     vel_pub.angular.z = 0;
                     speed.publish(vel_pub);
                 }else{
