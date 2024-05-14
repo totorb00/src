@@ -19,8 +19,8 @@ public:
         
         // Define the angle ranges to be filtered
         std::vector<std::pair<double, double>> angle_ranges = {
-            {0.0, 0.55},  // hoid dugui
-            {1.10, 1.33},  //baruun hoid dugui
+            {0.0, 0.45},  // hoid dugui
+            {0.9, 1.35},  //baruun hoid dugui
             {1.85, 2.1},   //baruun urd
             {3.0, 3.15},
             {-3.15, -3.0}//-utga avah bol - ih toonos -baga tooruu
