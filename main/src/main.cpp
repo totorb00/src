@@ -38,8 +38,8 @@ bool start_cmd=false;
 
 
 int nearest_ball=0;
-int camera_point_x=300;
-int camera_point_y=-415;
+int camera_point_x=280;
+int camera_point_y=-450;
 int shortest_distance_x=0;
 int shortest_distance_y=0;
 bool take_ball=false;
@@ -144,7 +144,7 @@ void camera_detect(const std_msgs::String::ConstPtr& ball_detect)
             // std::cout<< ongo << std::endl;
             nearest_ball = (shortest_distance_y-camera_point_y)/2 +  sqrt(pow(shortest_distance_x - camera_point_x, 2) + pow(shortest_distance_y - camera_point_y, 2));
             // std::cout<< nearest_ball << std::endl;
-            if(((ongo.compare(color)) == 0) || ((ongo.compare(ulaan)) == 0)){
+            if(((ongo.compare(color)) == 0)  || (ulaan.compare(color)) == 0){//(ongo.compare(color)) == 0) ||
                 // std::cout<< "ssssd-----------------"<<std::endl;
                 take_ball = true;
                 if(min_val >= nearest_ball){
@@ -333,7 +333,7 @@ int main(int argc, char **argv)
                     vel_pub.linear.y =  op*127;
                     vel_pub.angular.z= (-1)*op*PID(1.6,  0.0, 0.000, 90, theta, 127, 20);//int utga butsaana
                     speed.publish(vel_pub);
-                    last_y = robot_y - op*300;
+                    last_y = robot_y - op*250;
                 }else{
                     game_status=19;
                 }
@@ -435,11 +435,11 @@ int main(int argc, char **argv)
                 }else{
                 //90 gradus erge 
                 //ergesen bol
-                    for(int i = 0; i<4; i++){
+                    // for(int i = 0; i<4; i++){
                         reset_cordinate.data = 90;
                         res_encoder.publish(reset_cordinate);
-                        usleep(50000);
-                    }
+                    //     usleep(50000);
+                    // }
                     last_x = 0;
                     last_y = 0;
                     last_theta = 90;
@@ -479,10 +479,9 @@ int main(int argc, char **argv)
                         game_status=18;
 
                     }if(robot_ball){
-                        velocity_publishing(0,-20,0);
+                        velocity_publishing(0,0,0);
                         speed.publish(vel_pub);
                         now_x = robot_x + 50;
-                        prev_theta = robot_theta + op*45;
                         game_status = 7;
                         
                     }
@@ -533,11 +532,12 @@ int main(int argc, char **argv)
                 }else{
                     
                     if(abs(now_x-robot_x) <= 5){
+                        prev_theta = robot_theta + op*45;
                         game_status = 21;
                         ROS_INFO("game status 21, now x [%d]" , now_x);
                     }else{
                         vel_pub.linear.x=0;
-                        vel_pub.linear.y= 80; 
+                        vel_pub.linear.y= 100; 
                         vel_pub.angular.z=-PID(3.5, 0, 0, 90, robot_theta, 127, 20);
                         speed.publish(vel_pub);
 
@@ -552,10 +552,10 @@ int main(int argc, char **argv)
                 ROS_INFO("last_x =========== [%d]", last_x);
                 ROS_INFO("last_y =========== [%d]", last_y);
                
-                if(255 >= robot_theta || 280 <= robot_theta){
+                if(255 >= robot_theta || 270 <= robot_theta){
                     vel_pub.linear.x = 0;
                     vel_pub.linear.y = 0;
-                    vel_pub.angular.z = -PID(1.5, 0, 0, 270, robot_theta, 100, 20);
+                    vel_pub.angular.z = -PID(1.5, 0, 0, 270, robot_theta, 100, 10);
                     speed.publish(vel_pub);
                     
                 }else{
@@ -576,19 +576,19 @@ int main(int argc, char **argv)
                 }                    
                 ROS_INFO("ROBOT racknas uharch bna");
                 if(!robot_ball){
-                    if(front_distance > 175 && distance < 205 && distance > 195){
+                    if(front_distance > 175 && distance < 202 && distance > 198){
                         game_status = 17;
                         dcPos.data=0;
                         dc_pos.publish(dcPos);
-                    for(int i = 0; i<4; i++){
+                    // for(int i = 0; i<4; i++){
                         reset_cordinate.data = 270;
                         res_encoder.publish(reset_cordinate);
-                        usleep(50000);
-                    }
+                    //     usleep(50000);
+                    // }
                         
                     }else{
-                       vel_pub.linear.y = PID(0.8, 0, 0, 175, front_distance, 127, 40);
-                       vel_pub.linear.x = op*PID(0.8, 0, 0, 200, distance, 127, 20);
+                       vel_pub.linear.y = PID(0.8, 0, 0, 175, front_distance, 127, 15);
+                       vel_pub.linear.x = op*PID(0.8, 0, 0, 200, distance, 127, 15);
                     }
                     vel_pub.angular.z = -PID(2.0, 0, 0, 90, theta, 127, 40);
 
@@ -608,7 +608,7 @@ int main(int argc, char **argv)
                 if(op*prev_theta < op*robot_theta){
                         vel_pub.linear.x = 0;
                         vel_pub.linear.y = 0;
-                        vel_pub.angular.z = -PID(1.2, 0, 0, prev_theta, robot_theta, 80, 40);
+                        vel_pub.angular.z = -PID(2, 0, 0, prev_theta, robot_theta, 120, 40);
                         speed.publish(vel_pub);
                 }else{
                     game_status = 6;
@@ -720,7 +720,7 @@ int main(int argc, char **argv)
                 }
                 if((-robot_y * op) >= (-last_y * op)){
                     vel_pub.linear.x = 0;
-                    vel_pub.linear.y = op*-90;
+                    vel_pub.linear.y = op*-80;
                     vel_pub.angular.z = 0;
                     speed.publish(vel_pub);
                 }else{
@@ -742,7 +742,7 @@ int main(int argc, char **argv)
                     ROS_INFO("robot_theta ");
                     vel_pub.linear.x = 0;
                     vel_pub.linear.y = 0;
-                    vel_pub.angular.z = -PID(1.2, 0, 0, prev_theta, robot_theta, 80, 40);
+                    vel_pub.angular.z = -PID(2, 0, 0, prev_theta, robot_theta, 120, 40);
                     speed.publish(vel_pub);
                 }else{
                     ROS_INFO("bombog gargah uildel !!!!!");
