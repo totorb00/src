@@ -67,7 +67,7 @@ int back_x = 0;
 int back_y = 0;
 int back_theta = 0;
 
-std::vector<int> silo{4, 3, 2, 4, 3, 2, 4, 3, 2, 4, 2, 3, 4, 4, 3};
+std::vector<int> silo{4, 3, 2, 4, 3, 2, 4, 3, 2, 4, 2, 3, 2, 4, 3};
 int silo_dist = 0;
 bool ir_ball = false;
 
@@ -244,16 +244,17 @@ void key_changed(const std_msgs::String::ConstPtr& msg)//this flag is start or s
         start_cmd = true;
         game_status = 2;
     }
-    if(msg->data == "r"){//retry
+    else if(msg->data == "r"){//retry
         ROS_INFO("[Admin] key pressed: [%s]", msg->data.c_str());
         start_cmd = true;
         // reset_cordinate.data = 0;
         // res_encoder.publish(reset_cordinate);
         // dcPos.data=150;
         // dc_pos.publish(dcPos);
-        game_status = 4; 
-    }
+        game_status = 3; 
+    }else{
     start_cmd = false;
+    }
 }
 
 int main(int argc, char **argv)
@@ -361,8 +362,15 @@ int main(int argc, char **argv)
 
                 //     }
                 // }
+                BLDC.data = 0;
+                brushless.publish(BLDC);
+                speed.publish(vel_pub);
+                dcPos.data=150;
+                dc_pos.publish(dcPos);  
+                reset_cordinate.data = 0;
+                res_encoder.publish(reset_cordinate); 
                 if(start_cmd){
-                    game_status = 4;
+                    game_status = 22;
                 }else{
                     ROS_WARN_ONCE("The ROBOT waiting start cmd!!!");
                     ROS_WARN_ONCE("The ROBOT IS IN RETRY!!!");
@@ -370,11 +378,7 @@ int main(int argc, char **argv)
                     // vel_pub.linear.x = 0;
                     // vel_pub.linear.y = 0;
                     // vel_pub.angular.z = PID(0.6, 0.0, 0.000, 90, theta, 127, 20);
-                    speed.publish(vel_pub);
-                    dcPos.data=150;
-                    dc_pos.publish(dcPos);  
-                    reset_cordinate.data = 0;
-                    res_encoder.publish(reset_cordinate);
+                   
                 }
             }
             
@@ -398,7 +402,7 @@ int main(int argc, char **argv)
                 else{
                     left_setpoint=20;
                 }
-                if(vel_pub.linear.x < 5&& vel_pub.linear.x > -5 && vel_pub.linear.y < 5&& vel_pub.linear.y > -5 && theta > 88&& theta < 92   ){
+                if(vel_pub.linear.x < 5&& vel_pub.linear.x > -5 && vel_pub.linear.y < 5&& vel_pub.linear.y > -5 && theta > 88 && theta < 92   ){
                     game_status = 20;
                 }else{
                     ROS_INFO("left distance = %d", left_distance);
@@ -752,6 +756,26 @@ int main(int argc, char **argv)
                     prev_theta-= op*45;
                     game_status = 15;
                 }
+            }
+            else if(game_status == 22){
+                int left_setpoint=20;
+                int op = 0;
+                if(ongo == "red"){
+                    op = 1;
+                    distance=front_distance;
+                }else if(ongo == "blue"){
+                    op = -1;
+                    distance=back_distance;
+                }  
+                if(distance > 100){
+                    vel_pub.linear.x = PID(0.6, 0, 0.000, left_setpoint,left_distance, 127, 20);//int utga butsaana
+                    vel_pub.linear.y =  -op*75;
+                    vel_pub.angular.z= (-1)*op*PID(1.6,  0.0, 0.000, 90, theta, 127, 20);//int utga butsaana
+                    speed.publish(vel_pub);
+                }else{
+                    game_status=4;
+                }
+
             }
         }
          ros::spinOnce();
