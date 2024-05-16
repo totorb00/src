@@ -275,7 +275,26 @@ int main(int argc, char **argv)
     ros::Publisher  dc_pos = nh.advertise<std_msgs::UInt16>("pos_cmd", 10);
     ros::Publisher res_encoder = nh.advertise<std_msgs::Int16>("coordinate", 10);
     
-    silo_dist = (silo.back() - 1) * 75 + 50;
+    // silo_dist = (silo.back() - 1) * 75 + 50;
+    switch (silo.back())
+    {
+        case 1:
+            silo_dist=73;
+            break;
+        case 2:
+            silo_dist=145;
+            break;
+        case 3:
+            silo_dist=221;
+            break;
+        case 4:
+            silo_dist=295;
+            break;
+        case 5:
+            silo_dist=371;
+            break;
+
+    }   
     silo.pop_back();
 
     ros::Rate loop_rate(100);  
@@ -470,8 +489,8 @@ int main(int argc, char **argv)
                     if(robot_x )
                     if(!((w <= camera_point_y + 5) && (u <= camera_point_x + 3) && (u >= camera_point_x - 3))){  
 
-                        vel_pub.linear.y = PID(0.5, 0, 0, camera_point_y, w, 60 , 5);
-                        vel_pub.linear.x = -PID(0.5, 0, 0, camera_point_x, u, 60, 5);       
+                        vel_pub.linear.y = PID(0.5, 0, 0, camera_point_y, w, 70, 5);
+                        vel_pub.linear.x = -PID(0.5, 0, 0, camera_point_x, u, 70, 5);       
                         vel_pub.angular.z = -PID(3, 0, 0, 90, robot_theta, 127, 20);
                         speed.publish(vel_pub);
                         ROS_INFO("nearest_ball : [%d]", nearest_ball);
@@ -493,7 +512,7 @@ int main(int argc, char **argv)
                 }else{
 
                     ROS_ERROR("Bonbog oldoogui!!");  
-                    velocity_publishing(0, 50, 0);
+                    velocity_publishing(0, 40, 0);
                     speed.publish(vel_pub);
                 }
             }
@@ -524,8 +543,8 @@ int main(int argc, char **argv)
                         game_status = 8;
                         ROS_INFO("Prev_theta = [%d]", prev_theta);
                     }else{
-                        vel_pub.linear.x = -PID(1, 0, 0, 0, diff_x, 100, 20);
-                        vel_pub.linear.y = PID(1, 0, 0, 0, diff_y, 100, 20);
+                        vel_pub.linear.x = -PID(1, 0, 0, 0, diff_x, 110, 20);
+                        vel_pub.linear.y = PID(1, 0, 0, 0, diff_y, 110, 20);
                         vel_pub.angular.z = -PID(3.5, 0, 0, 90, robot_theta, 127, 20);
                         speed.publish(vel_pub);                        
                     }
@@ -580,7 +599,7 @@ int main(int argc, char **argv)
                 }                    
                 ROS_INFO("ROBOT racknas uharch bna");
                 if(!robot_ball){
-                    if(front_distance > 175 && distance < 202 && distance > 198){
+                    if(front_distance > 175 && distance < 205 && distance > 195){
                         game_status = 17;
                         dcPos.data=0;
                         dc_pos.publish(dcPos);
@@ -625,18 +644,19 @@ int main(int argc, char **argv)
                 int op=0;
                 if(ongo == "red"){
                     op = 1;
-                    distance = left_distance + 22;
+                    distance = left_distance;
+                    silo_dist=silo_dist-44;
                 }
                 if(ongo == "blue"){
                     op = -1;
-                    distance = right_distance - 22;
+                    distance = right_distance;
                 }                    
                 if(theta<88||theta>92){
                     vel_pub.angular.z = -PID(2.0, 0, 0, 90, theta, 127, 20);// hasah bolgoson 
                 }else{
                     if(distance == silo_dist && front_distance <= 34 )  {
                         if(!ir_ball){
-                            BLDC.data = 2;
+                            BLDC.data = 2;  
                             brushless.publish(BLDC);
                             velocity_publishing(0,0,0);
                             speed.publish(vel_pub);
@@ -674,7 +694,25 @@ int main(int argc, char **argv)
 
                     // reset_cordinate.data = 90;
                     // res_encoder.publish(reset_cordinate);
-                    silo_dist = (silo.back() - 1) * 75 + 50;
+                    switch (silo.back())
+                    {
+                        case 1:
+                            silo_dist=73;
+                            break;
+                        case 2:
+                            silo_dist=145;
+                            break;
+                        case 3:
+                            silo_dist=221;
+                            break;
+                        case 4:
+                            silo_dist=295;
+                            break;
+                        case 5:
+                            silo_dist=371;
+                            break;
+
+                    }   
                     silo.pop_back();
                     last_theta = 90;
                     last_x = 0;

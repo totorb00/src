@@ -7,28 +7,28 @@
 	CompilerVersion="9.4.0"
 	OSName="Linux"
 	Hostname="robocon"
-	OSRelease="5.15.0-105-generic"
-	OSVersion="#115~20.04.1-Ubuntu SMP Mon Apr 15 17:33:04 UTC 2024"
+	OSRelease="5.15.0-107-generic"
+	OSVersion="#117~20.04.1-Ubuntu SMP Tue Apr 30 10:35:57 UTC 2024"
 	OSPlatform="x86_64"
 	Is64Bits="1"
 	VendorString="GenuineIntel"
 	VendorID="Intel Corporation"
 	FamilyID="6"
-	ModelID="140"
-	ProcessorCacheSize="8192"
-	NumberOfLogicalCPU="8"
-	NumberOfPhysicalCPU="4"
+	ModelID="141"
+	ProcessorCacheSize="24576"
+	NumberOfLogicalCPU="16"
+	NumberOfPhysicalCPU="8"
 	TotalVirtualMemory="2047"
-	TotalPhysicalMemory="7665"
+	TotalPhysicalMemory="15731"
 	LogicalProcessorsPerPhysical="2"
-	ProcessorClockFrequency="1400"
+	ProcessorClockFrequency="2396.55"
 	>
 	<Testing>
-		<StartDateTime>May 16 20:47 +08</StartDateTime>
-		<StartTestTime>1715863676</StartTestTime>
+		<StartDateTime>May 16 22:26 +08</StartDateTime>
+		<StartTestTime>1715869595</StartTestTime>
 		<TestList/>
-		<EndDateTime>May 16 20:47 +08</EndDateTime>
-		<EndTestTime>1715863676</EndTestTime>
+		<EndDateTime>May 16 22:26 +08</EndDateTime>
+		<EndTestTime>1715869595</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>
