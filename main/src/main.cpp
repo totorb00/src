@@ -144,7 +144,7 @@ void camera_detect(const std_msgs::String::ConstPtr& ball_detect)
             // std::cout<< ongo << std::endl;
             nearest_ball = (shortest_distance_y-camera_point_y)/2 +  sqrt(pow(shortest_distance_x - camera_point_x, 2) + pow(shortest_distance_y - camera_point_y, 2));
             // std::cout<< nearest_ball << std::endl;
-            if(((ongo.compare(color)) == 0)  || (ulaan.compare(color)) == 0){//(ongo.compare(color)) == 0) ||
+            if(((ongo.compare(color)) == 0)  /*|| (ulaan.compare(color)) == 0*/){//(ongo.compare(color)) == 0) ||
                 // std::cout<< "ssssd-----------------"<<std::endl;
                 take_ball = true;
                 if(min_val >= nearest_ball){
