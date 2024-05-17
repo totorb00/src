@@ -67,7 +67,7 @@ int back_x = 0;
 int back_y = 0;
 int back_theta = 0;
 
-std::vector<int> silo{4, 3, 2, 4, 3, 2, 4, 3, 2, 4, 2, 3, 2, 4, 3};
+std::vector<int> silo{2, 3, 2, 4, 4, 2, 2, 3, 3, 5, 1, 5, 2, 4, 3};
 int silo_dist = 0;
 bool ir_ball = false;
 
@@ -351,7 +351,7 @@ int main(int argc, char **argv)
                     ROS_INFO("The distance is [150] of [%d]", distance);
                     vel_pub.linear.x = PID(0.6, 0, 0.000, left_setpoint,left_distance, 127, 20);//int utga butsaana
                     vel_pub.linear.y =  op*127;
-                    vel_pub.angular.z= (-1)*op*PID(1.6,  0.0, 0.000, 90, theta, 127, 20);//int utga butsaana
+                    vel_pub.angular.z= -PID(1.6,  0.0, 0.000, 90, theta, 127, 20);//int utga butsaana
                     speed.publish(vel_pub);
                     last_y = robot_y - op*250;
                 }else{
@@ -395,7 +395,7 @@ int main(int argc, char **argv)
                     ROS_WARN_ONCE("The ROBOT IS IN RETRY!!!");
                     velocity_publishing(0,0,0);
                     // vel_pub.linear.x = 0;
-                    // vel_pub.linear.y = 0;
+                    // vel_pub.linear.y = 0;    
                     // vel_pub.angular.z = PID(0.6, 0.0, 0.000, 90, theta, 127, 20);
                    
                 }
@@ -403,12 +403,12 @@ int main(int argc, char **argv)
             
             else if (game_status ==4){
                 int front_setpoint=60;
-                int left_setpoint=20;
+                int left_setpoint=30;
                 int op=1;
                 if(ongo=="red"){
-                    distance=left_distance;
+                    distance=front_distance;
                     op=1;
-                    front_setpoint=70;
+                    front_setpoint=80;
                 }
                 else if(ongo=="blue"){
                     distance=back_distance;
@@ -429,9 +429,9 @@ int main(int argc, char **argv)
                     ROS_INFO("thete of left = %f", theta);
                     vel_pub.linear.x = PID(0.8, 0.0, 0.00, left_setpoint, left_distance, 127, 3);
                     vel_pub.linear.y = op*PID(0.8, 0.0, 0.00, front_setpoint, distance, 127, 3);
-                    vel_pub.angular.z = op*PID(2.8, 0.0, 0.00, 90, theta, 127, 20);
+                    vel_pub.angular.z = -PID(2.8, 0.0, 0.00, 90, theta, 127, 20);
                     speed.publish(vel_pub);
-                    last_y = robot_y + op*250;
+                    last_y = robot_y + op*300;
                 }
                 // }
             }
@@ -574,16 +574,28 @@ int main(int argc, char **argv)
                       
                 ROS_INFO("last_x =========== [%d]", last_x);
                 ROS_INFO("last_y =========== [%d]", last_y);
-               
-                if(255 >= robot_theta || 270 <= robot_theta){
-                    vel_pub.linear.x = 0;
-                    vel_pub.linear.y = 0;
-                    vel_pub.angular.z = -PID(1.5, 0, 0, 270, robot_theta, 100, 10);
-                    speed.publish(vel_pub);
-                    
-                }else{
-                        game_status = 16;//ergej harad ontsog zasah    
-                }                
+                if(ongo == "blue"){   
+                    if(255 >= robot_theta || 270 <= robot_theta){
+                        vel_pub.linear.x = 0;
+                        vel_pub.linear.y = 0;
+                        vel_pub.angular.z = -PID(1.5, 0, 0, 270, robot_theta, 100, 10);
+                        speed.publish(vel_pub);
+                        
+                    }else{
+                            game_status = 16;//ergej harad ontsog zasah    
+                    } 
+                }  
+                if(ongo == "red"){
+                    if(260 >= robot_theta || 275 <= robot_theta){
+                        vel_pub.linear.x = 0;
+                        vel_pub.linear.y = 0;
+                        vel_pub.angular.z = -PID(1.5, 0, 0, 270, robot_theta, 100, 10);
+                        speed.publish(vel_pub);
+                        
+                    }else{
+                            game_status = 16;//ergej harad ontsog zasah    
+                    } 
+                }             
             }
             
             // // Racknaas hoish uhrah
@@ -599,7 +611,7 @@ int main(int argc, char **argv)
                 }                    
                 ROS_INFO("ROBOT racknas uharch bna");
                 if(!robot_ball){
-                    if(front_distance > 175 && distance < 205 && distance > 195){
+                    if(front_distance > 170 && distance < 205 && distance > 195){
                         game_status = 17;
                         dcPos.data=0;
                         dc_pos.publish(dcPos);
@@ -610,10 +622,10 @@ int main(int argc, char **argv)
                     // }
                         
                     }else{
-                       vel_pub.linear.y = PID(0.8, 0, 0, 175, front_distance, 127, 15);
-                       vel_pub.linear.x = op*PID(0.8, 0, 0, 200, distance, 127, 15);
+                       vel_pub.linear.y = PID(0.8, 0, 0, 175, front_distance, 127, 20);
+                       vel_pub.linear.x = op*PID(0.8, 0, 0, 200, distance, 127, 20);
                     }
-                    vel_pub.angular.z = -PID(2.0, 0, 0, 90, theta, 127, 40);
+                    vel_pub.angular.z = -PID(2.0, 0, 0, 90, theta, 127, 40); 
 
                     speed.publish(vel_pub);
                 }
@@ -640,21 +652,22 @@ int main(int argc, char **argv)
             
             else if(game_status == 16){
                 ROS_INFO("ROBOT siloruu yvad hesegt bna: ");
-                
+                int silo;
                 int op=0;
                 if(ongo == "red"){
                     op = 1;
                     distance = left_distance;
-                    silo_dist=silo_dist-44;
+                    silo = silo_dist-44;
                 }
                 if(ongo == "blue"){
                     op = -1;
                     distance = right_distance;
+                    silo = silo_dist;
                 }                    
                 if(theta<88||theta>92){
                     vel_pub.angular.z = -PID(2.0, 0, 0, 90, theta, 127, 20);// hasah bolgoson 
                 }else{
-                    if(distance == silo_dist && front_distance <= 34 )  {
+                    if(distance == silo && front_distance <= 34 )  {
                         if(!ir_ball){
                             BLDC.data = 2;  
                             brushless.publish(BLDC);
@@ -668,14 +681,18 @@ int main(int argc, char **argv)
                         }
                             
                     }else{
-                        ROS_INFO("silo dist     = [%d]", silo_dist);
+                        ROS_INFO("silo dist     = [%d]", silo);
                         ROS_INFO("left distance = [%d]", distance);
-
-                        vel_pub.linear.x =  op*PID(1.0, 0, 0, silo_dist, distance, 90, 25);
+                        if(ongo == "blue"){
+                            vel_pub.linear.x =  op*PID(1.0, 0, 0, silo, distance, 90, 20);
+                        }
+                        if(ongo == "red"){
+                            vel_pub.linear.x =  op*PID(0.8, 0, 0, silo, distance, 70, 20);
+                        }
                         vel_pub.linear.y = PID(0.6, 0, 0, 30, front_distance, 50, 15);
                         vel_pub.angular.z = -PID(3.5, 0, 0, 90, theta, 127, 30);
                         speed.publish(vel_pub);
-                    }
+                    }   
                 }
                 ROS_INFO("theta : [%f]", theta);
                 // ROS_INFO("")
@@ -796,7 +813,7 @@ int main(int argc, char **argv)
                 }
             }
             else if(game_status == 22){
-                int left_setpoint=20;
+                int left_setpoint=60;
                 int op = 0;
                 if(ongo == "red"){
                     op = 1;
@@ -808,7 +825,7 @@ int main(int argc, char **argv)
                 if(distance > 100){
                     vel_pub.linear.x = PID(0.6, 0, 0.000, left_setpoint,left_distance, 127, 20);//int utga butsaana
                     vel_pub.linear.y =  -op*75;
-                    vel_pub.angular.z= (-1)*op*PID(1.6,  0.0, 0.000, 90, theta, 127, 20);//int utga butsaana
+                    vel_pub.angular.z= -PID(1.6,  0.0, 0.000, 90, theta, 127, 20);//int utga butsaana
                     speed.publish(vel_pub);
                 }else{
                     game_status=4;
