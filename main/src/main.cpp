@@ -67,7 +67,7 @@ int back_x = 0;
 int back_y = 0;
 int back_theta = 0;
 
-std::vector<int> silo{2, 3, 2, 4, 4, 2, 2, 3, 3, 5, 1, 5, 2, 4, 3};
+std::vector<int> silo{2, 3, 2, 1, 2, 4, 2, 3, 4, 2, 2, 4, 4, 3, 3};
 int silo_dist = 0;
 bool ir_ball = false;
 
@@ -350,7 +350,7 @@ int main(int argc, char **argv)
                 if(distance > 150 || distance==0){
                     ROS_INFO("The distance is [150] of [%d]", distance);
                     vel_pub.linear.x = PID(0.6, 0, 0.000, left_setpoint,left_distance, 127, 20);//int utga butsaana
-                    vel_pub.linear.y =  op*127;
+                    vel_pub.linear.y =  op*100;//127 baisan
                     vel_pub.angular.z= -PID(1.6,  0.0, 0.000, 90, theta, 127, 20);//int utga butsaana
                     speed.publish(vel_pub);
                     last_y = robot_y - op*250;
@@ -408,7 +408,7 @@ int main(int argc, char **argv)
                 if(ongo=="red"){
                     distance=front_distance;
                     op=1;
-                    front_setpoint=80;
+                    front_setpoint=67;//80 baisan
                 }
                 else if(ongo=="blue"){
                     distance=back_distance;
@@ -813,7 +813,7 @@ int main(int argc, char **argv)
                 }
             }
             else if(game_status == 22){
-                int left_setpoint=60;
+                int left_setpoint=65;
                 int op = 0;
                 if(ongo == "red"){
                     op = 1;
